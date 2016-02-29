@@ -1,0 +1,11 @@
+#!/bin/sh
+
+LOCAL_IP=192.168.99.1
+LOCAL_PORT=3120
+
+REMOTE_IP=localhost
+REMOTE_PORT=3120
+
+socat \
+  TCP4-LISTEN:${LOCAL_PORT},bind=${LOCAL_IP},fork,reuseaddr \
+  TCP4:${REMOTE_IP}:${REMOTE_PORT}
