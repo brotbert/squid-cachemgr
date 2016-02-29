@@ -1,9 +1,12 @@
+proxy:
+	./bin/socat-proxy.sh
+
 build:
 	docker-compose build
 
 up:
 	docker-compose up -d
-	./bin/socat-proxy.sh
+	@$(MAKE) proxy
 
 run:
 	docker-compose run --rm app /bin/bash
